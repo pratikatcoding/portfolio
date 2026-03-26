@@ -37,8 +37,8 @@ Currently learning and growing in **DSA, Backend Development, and Machine Learni
 ---
 
 ## 🌐 Connect With Me
-- **LinkedIn:** [Your LinkedIn](https://www.linkedin.com/in/pratik-karmakar/)
-- **GitHub:** [Your GitHub](https://github.com/pratikatcoding)
+- **LinkedIn:** [My LinkedIn](https://www.linkedin.com/in/pratik-karmakar/)
+- **GitHub:** [My GitHub](https://github.com/pratikatcoding)
 
 ---
 
