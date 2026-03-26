@@ -32,13 +32,13 @@ Currently learning and growing in **DSA, Backend Development, and Machine Learni
 ---
 
 ## 📊 GitHub Stats
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=pratikatcoding&show_icons=true&theme=tokyonight)
 
 ---
 
 ## 🌐 Connect With Me
-- **LinkedIn:** [Your LinkedIn](https://linkedin.com/in/YOUR_LINKEDIN)
-- **GitHub:** [Your GitHub](https://github.com/YOUR_USERNAME)
+- **LinkedIn:** [Your LinkedIn](https://www.linkedin.com/in/pratik-karmakar/)
+- **GitHub:** [Your GitHub](https://github.com/pratikatcoding)
 
 ---
 
