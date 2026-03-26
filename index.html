@@ -1301,39 +1301,38 @@
 
     <script>
         // Mobile menu
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('ham-icon');
-            const isOpen = menu.classList.toggle('open');
-            icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-        }
-        function closeMenu() {
-            document.getElementById('mobile-menu').classList.remove('open');
-            document.getElementById('ham-icon').className = 'fa-solid fa-bars';
-        }
+        // function toggleMenu() {
+        //     const menu = document.getElementById('mobile-menu');
+        //     const icon = document.getElementById('ham-icon');
+        //     const isOpen = menu.classList.toggle('open');
+        //     icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        // }
+        // function closeMenu() {
+        //     document.getElementById('mobile-menu').classList.remove('open');
+        //     document.getElementById('ham-icon').className = 'fa-solid fa-bars';
+        // }
 
-        // Resume download
-        function downloadResume(e) {
-            if (e) e.preventDefault();
-            alert('📄 Resume download starting');
-        }
+        // // Resume download
+        // function downloadResume(e) {
+        //     if (e) e.preventDefault();
+        //     alert('📄 Resume download starting');
+        // }
 
-        // Form submit
-        function handleSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            alert(`Thank you, ${name || 'friend'}! Your message has been received. I'll get back to you soon. 🚀`);
-            e.target.reset();
-        }
+        // // Form submit
+        // function handleSubmit(e) {
+        //     e.preventDefault();
+        //     const name = document.getElementById('name').value;
+        //     alert(`Thank you, ${name || 'friend'}! Your message has been received. I'll get back to you soon. 🚀`);
+        //     e.target.reset();
+        // }
 
-        // Close mobile menu on resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 960) closeMenu();
-        });
-    </script>
-
-    <!-- ---------------------------------------------------------------------------------------!!!!!!!!!!!!!!!!!!--------------------------------------------------------------------------------------- -->
-    // ─────────────────────────────────────────────
+        // // Close mobile menu on resize
+        // window.addEventListener('resize', () => {
+        //     if (window.innerWidth > 960) closeMenu();
+        // });
+        // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        
+        // ─────────────────────────────────────────────
 // EmailJS Contact Form — Pratik's Portfolio
 // ─────────────────────────────────────────────
 // REPLACE these 3 values with your own from emailjs.com
@@ -1439,5 +1438,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+    </script>
+
+    
+    
 </body>
 </html>
