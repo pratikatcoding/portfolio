@@ -1331,5 +1331,113 @@
             if (window.innerWidth > 960) closeMenu();
         });
     </script>
+
+    <!-- ---------------------------------------------------------------------------------------!!!!!!!!!!!!!!!!!!--------------------------------------------------------------------------------------- -->
+    // ─────────────────────────────────────────────
+// EmailJS Contact Form — Pratik's Portfolio
+// ─────────────────────────────────────────────
+// REPLACE these 3 values with your own from emailjs.com
+const EMAILJS_PUBLIC_KEY  = "M1lO4lqUPBD5umLOE";       // Account → Public Key
+const EMAILJS_SERVICE_ID  = "service_39v5c07";       // e.g. service_xxxxxxx
+const EMAILJS_TEMPLATE_ID = "template_n2rlwkv";      // e.g. template_xxxxxxx
+// ─────────────────────────────────────────────
+
+// 1. Load the EmailJS SDK
+(function () {
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+  script.onload = () => emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  document.head.appendChild(script);
+})();
+
+// 2. Wire up the form on DOM ready
+document.addEventListener("DOMContentLoaded", () => {
+
+  // ── Grab elements ──────────────────────────────────────────
+  // Tries common selectors — adjust if your IDs/classes differ
+  const nameInput    = document.querySelector('input[placeholder="Your name"], input[name="name"], #name');
+  const emailInput   = document.querySelector('input[placeholder*="email"], input[name="email"], #email');
+  const messageInput = document.querySelector('textarea, input[name="message"], #message');
+  const sendBtn      = document.querySelector('button, .send-btn, [type="submit"]');
+
+  if (!sendBtn) {
+    console.warn("EmailJS: Could not find the Send button. Check your selector.");
+    return;
+  }
+
+  // ── Helper: show feedback inside the button ─────────────────
+  const originalBtnHTML = sendBtn.innerHTML;
+
+  function setBtnState(state) {
+    if (state === "loading") {
+      sendBtn.disabled = true;
+      sendBtn.innerHTML = "SENDING…";
+      sendBtn.style.opacity = "0.7";
+    } else if (state === "success") {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = "✓ MESSAGE SENT!";
+      sendBtn.style.background = "#00c853";
+      sendBtn.style.opacity = "1";
+      setTimeout(() => {
+        sendBtn.innerHTML = originalBtnHTML;
+        sendBtn.style.background = "";
+      }, 3000);
+    } else if (state === "error") {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = "✗ FAILED — TRY AGAIN";
+      sendBtn.style.background = "#e53935";
+      sendBtn.style.opacity = "1";
+      setTimeout(() => {
+        sendBtn.innerHTML = originalBtnHTML;
+        sendBtn.style.background = "";
+      }, 3000);
+    } else {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = originalBtnHTML;
+      sendBtn.style.opacity = "1";
+    }
+  }
+
+  // ── Send handler ────────────────────────────────────────────
+  sendBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const name    = nameInput?.value.trim()    || "";
+    const email   = emailInput?.value.trim()   || "";
+    const message = messageInput?.value.trim() || "";
+
+    // Basic validation
+    if (!name || !email || !message) {
+      alert("Please fill in all fields before sending.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    setBtnState("loading");
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name:  name,
+        from_email: email,
+        message:    message,
+        reply_to:   email,
+      });
+
+      setBtnState("success");
+
+      // Clear the form
+      if (nameInput)    nameInput.value    = "";
+      if (emailInput)   emailInput.value   = "";
+      if (messageInput) messageInput.value = "";
+
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setBtnState("error");
+    }
+  });
+});
 </body>
 </html>
